@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,24 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.booksParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.BLink {
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  margin: 5px;
+  padding: 5px;
+  background-color: cornflowerblue;
 }
