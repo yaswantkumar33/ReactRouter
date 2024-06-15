@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Link, Route, Routes, useRoutes } from 'react-router-dom'
+import { Link, NavLink, Route, Routes, useLocation, useRoutes } from 'react-router-dom'
 import Home from './components/Home'
 // import Books from './components/Books'
 import BooksRoute from './components/booksRoute'
@@ -21,6 +21,8 @@ function App() {
   //     element: <NotFound />
   //   }
   // ])
+  const lcoation = useLocation()
+  console.log(lcoation)
   return (
     <>
       <Routes location="/books">
@@ -28,13 +30,20 @@ function App() {
       </Routes>
       <nav>
         <ul>
-          <li><Link to="/" >Home</Link></li>
-          <li><Link to="/books" >Books</Link></li>
-          <li><Link to="/About" >About</Link></li>
+          <li><NavLink state="Hi" style={({ isActive }) => {
+            return isActive ? { color: "red" } : {}
+          }
+          } to="/" >{({ isActive }) => {
+            return isActive ? "Active Home" : "Home"
+          }}</NavLink></li>
+          {/* <li><Link to="/books" >Books</Link></li> */}
+          <li><NavLink to="/books" end >Books</NavLink></li>
+          {/* <li><Link to="/About" >About</Link></li> */}
+          <li><NavLink to="/About" >About</NavLink></li>
         </ul>
-      </nav>
+      </nav >
       {/* {element} */}
-      <Routes>
+      < Routes >
         <Route path='/' element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path='/books/*' element={<BooksRoute />}>
@@ -49,7 +58,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route />
         <Route />
-      </Routes>
+      </Routes >
     </>
   )
 }

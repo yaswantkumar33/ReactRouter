@@ -86,3 +86,7 @@ nav ul {
   padding: 5px;
   background-color: cornflowerblue;
 }
+.active {
+  color: red;
+  font-size: 26px;
+}
